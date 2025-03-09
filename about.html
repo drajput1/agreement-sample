@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Agreement Drafts</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #211C84;
+            --secondary-color: #B5A8D5;
+            --white-color: #FFFFFF;
+            --accent-color: #4D55CC;
+            --footer-bg-color: #1A1A1A;
+            --footer-text-color: #CCCCCC;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--primary-color);
+        }
+
+        /* Navbar Styles (unchanged) */
+        .navbar {
+            background-color: var(--white-color);
+            padding: 1.5rem 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-text {
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            align-items: baseline;
+        }
+
+        .logo-agreement {
+            font-weight: 700;
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+
+        .logo-draft {
+            font-weight: 400;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-left: 5px;
+        }
+
+        .nav-link {
+            color: var(--primary-color) !important;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.1rem;
+            margin-right: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #1A252F !important;
+        }
+
+        .dropdown-menu {
+            background-color: var(--white-color);
+            border: 1px solid rgba(0,0,0,0.1);
+            display: none;
+            position: absolute;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            min-width: 200px;
+        }
+
+        .nav-item:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-item {
+            color: var(--primary-color);
+            padding: 0.5rem 1rem;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--secondary-color);
+            color: var(--primary-color) !important;
+        }
+
+        /* About Section Styles */
+        .about-section {
+            padding: 20px 0;
+            background-color: var(--white-color);
+        }
+
+        .about-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--white-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .about-section ul li {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+        }
+
+        .about-section ul li::before {
+            content: "•";
+            color: var(--accent-color);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        .about-section .highlight {
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+        /* Footer Section */
+        .footer {
+            background-color: var(--footer-bg-color);
+            color: var(--footer-text-color);
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-section h4 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: var(--white-color);
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section ul li a {
+            color: var(--footer-text-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--white-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .heading-card {
+            background: linear-gradient(135deg, #4D55CC, #211C84);
+            color: #fff;
+            padding: 40px 20px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .heading-card h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .heading-card p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .about-section h2 {
+                font-size: 2rem;
+            }
+
+            .about-section p {
+                font-size: 1rem;
+            }
+
+            .about-section ul li {
+                font-size: 1rem;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar (unchanged) -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+             <a class="navbar-brand" href="index.html">
+                <div class="logo-container">
+                    <div class="logo-text">
+                        <span class="logo-brand">Agreement<span>Drafts</span></span>
+                    </div>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#">Property Related</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Agreement to Sale</a></li>
+                            <li><a class="dropdown-item" href="#">Construction Agreement</a></li>
+                            <li><a class="dropdown-item" href="#">Developer Agreement</a></li>
+                            <li><a class="dropdown-item" href="#">Sale Deed</a></li>
+                            <li><a class="dropdown-item" href="#">Sale of Vehicle</a></li>
+                            <li><a class="dropdown-item" href="#">Exchange Deed</a></li>
+                            <li><a class="dropdown-item" href="#">Gift Deed</a></li>
+                            <li><a class="dropdown-item" href="#">Partition Deed</a></li>
+                            <li><a class="dropdown-item" href="#">Release Deed</a></li>
+                            <li><a class="dropdown-item" href="#">Settlement Deed</a></li>
+                            <li><a class="dropdown-item" href="#">Power of Attorney</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#">Lease and Loans</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Rent Agreement</a></li>
+                            <li><a class="dropdown-item" href="#">Guarantee Agreement</a></li>
+                            <li><a class="dropdown-item" href="#">Mortgage Deed</a></li>
+                            <li><a class="dropdown-item" href="#">Mortgage Enhancement Deed</a></li>
+                            <li><a class="dropdown-item" href="#">Hypothecation Agreement</a></li>
+                            <li><a class="dropdown-item" href="#">Indemnity Bond</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#">Mis</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Affidavit</a></li>
+                            <li><a class="dropdown-item" href="#">Adoption Deed</a></li>
+                            <li><a class="dropdown-item" href="#">Correction Deed</a></li>
+                            <li><a class="dropdown-item" href="#">Cancellation Deed</a></li>
+                            <li><a class="dropdown-item" href="#">Consent Deed</a></li>
+                            <li><a class="dropdown-item" href="#">Divorce Deed</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <h2 class="heading-card">About Us</h2>
+            <p>
+                At <span class="highlight">Agreement Drafts</span>, we understand the importance of having well-crafted legal documents that meet your needs. Our innovative platform allows users to generate various legal agreements (registered or non-registered) with just a few clicks. We are dedicated to providing a user-friendly experience, ensuring that you can prepare documents in multiple languages.
+            </p>
+            <p>
+                Whether you're an individual or a business, our service is designed to simplify the process of creating essential agreements. Experience the convenience of tailored legal solutions with <span class="highlight">Agreement Drafts</span>.
+            </p>
+            <h3>Our Services</h3>
+            <ul>
+                <li>Pay and download drafts only.</li>
+                <li>Submit draft that doesn't require registration (Services Offered: Payment of Stamp Duty + Notarization + Delivery).</li>
+                <li>Submit draft that requires Registration (Services Offered: Payment of Stamp Duty + Registration Fees + Photographs + Other formalities + Assistance at District Registrar Office).</li>
+            </ul>
+            <h3>Delivery Timeline</h3>
+            <ul>
+                <li>Unregistered agreements: Within <span class="highlight">1-2* Hours</span>.</li>
+                <li>Registered agreements: Within <span class="highlight">0-2* Days</span>.</li>
+            </ul>
+        </div>
+    </section>
+
+     <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>About Us</h4>
+                <p>We are a trusted platform for creating legal agreements online. Our mission is to simplify the process of drafting agreements for everyone.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                   <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li>Email: support@agreementdraft.com</li>
+                    <li>Phone: +91 123-456-7890</li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>COPYRIGHT © BRIDGE CONSULTANCY . ALL RIGHT RESERVED.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS (for responsive toggle only) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
