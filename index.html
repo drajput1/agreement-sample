@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agreement Draft</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Font -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #211C84;
+            --secondary-color: #B5A8D5;
+            --white-color: #FFFFFF;
+            --accent-color: #4D55CC;
+            --footer-bg-color: #252e38;
+            --footer-text-color: #CCCCCC;
+            --tab-active-color: #4D55CC;
+            --tab-inactive-color: #B5A8D5;
+
+        }
+
+        /* Navbar Styles (unchanged) */
+        .navbar {
+            background-color: var(--white-color);
+            padding: 1.5rem 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-text {
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            align-items: baseline;
+        }
+        .logo-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+        }
+        .logo-brand span {
+            color: var(--accent-color);
+        }
+
+
+        .nav-link {
+            color: var(--primary-color) !important;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.1rem;
+            margin-right: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #1A252F !important;
+        }
+
+        .dropdown-menu {
+            background-color: var(--white-color);
+            border: 1px solid rgba(0,0,0,0.1);
+            display: none;
+            position: absolute;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            min-width: 200px;
+        }
+
+        .nav-item:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-item {
+            color: var(--primary-color);
+            padding: 0.5rem 1rem;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--secondary-color);
+            color: var(--primary-color) !important;
+        }
+
+        /* Updated Hero Section */
+        .hero-section {
+            position: relative;
+            overflow: hidden;
+            height: 450px; /* Set a fixed height for the hero section */
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 5rem 0 4rem;
+            color: white;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            gap: 40px;
+        }
+
+        .hero-content {
+            flex: 1;
+            color: var(--white-color);
+            z-index: 1;
+            max-width: 600px;
+        }
+
+        .hero-title {
+            font-family: 'Roboto', sans-serif;
+            font-size: 2.5rem; /* Slightly smaller font size */
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .hero-subtitle {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem; /* Slightly smaller font size */
+            font-weight: 400;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .hero-image {
+            flex: 1;
+            max-width: 450px;
+            height: 100%; /* Ensure the image container takes full height */
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image img {
+            width: auto; /* Allow the image to scale naturally */
+            height: 100%; /* Make the image fill the height of the container */
+            object-fit: cover; /* Ensure the image covers the area without distortion */
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3));
+        }
+
+        /* Footer Section */
+        .footer {
+            background-color: var(--footer-bg-color);
+            color: var(--footer-text-color);
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-section h4 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: var(--white-color);
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section ul li a {
+            color: var(--footer-text-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--white-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Features Section Styles */
+    .features-section {
+        padding: 60px 20px;
+        background-color: #f9f9f9;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    /* Highlighted Card */
+    .highlight-card {
+        background: linear-gradient(135deg, #4D55CC, #211C84);
+        color: #fff;
+        padding: 40px 20px;
+        border-radius: 10px;
+        margin-bottom: 40px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .highlight-card h2 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+
+    .highlight-card p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+
+    /* Feature Cards */
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        .feature-cards {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+
+
+
+
+     /* Selection Block Styles */
+     .selection-block {
+        background-color: var(--primary-color); /* Background color */
+        padding: 50px 0;
+        margin-top: -10px; /* Overlap with hero section */
+        position: relative;
+        z-index: 1;
+    }
+
+    .control-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .selection-controls {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    /* Dropdown Styles */
+    .dropdown-control {
+        flex: 1;
+        max-width: 300px;
+    }
+
+    .styled-dropdown {
+        width: 100%;
+        padding: 12px 20px;
+        font-size: 1rem;
+        border: 2px solid #fff;
+        border-radius: 5px;
+        background-color: transparent;
+        color: #f2f6f8;
+        appearance: none; /* Remove default arrow */
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .styled-dropdown:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .styled-dropdown:focus {
+        outline: none;
+        border-color: #08011a;
+    }
+
+    /* Dropdown Option Styles */
+    .styled-dropdown option {
+            background-color: #4D55CC; /* Background color for options */
+            color: #fff; /* Text color for options */
+        }
+
+        /* Hover effect for options */
+        .styled-dropdown option:hover {
+            background-color: #B5A8D5; /* Hover background color */
+            color: #211C84; /* Hover text color */
+        }
+
+    /* Button Styles */
+    .styled-button {
+        padding: 12px 30px;
+        font-size: 1rem;
+        font-weight: 500;
+        color: #4D55CC;
+        background-color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .styled-button:hover {
+        background-color: #B5A8D5;
+        color: #fff;
+    }
+
+
+   /* VMV Tabs Section */
+        .vmv-section {
+            background: var(--light-bg);
+            padding: 2rem 0;
+        }
+        .vmv-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+        .vmv-tab {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            background: white;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 2px solid transparent;
+        }
+        .vmv-tab.active {
+            background: var(--accent-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        .vmv-tab i {
+            font-size: 1.2rem;
+        }
+
+        .vmv-content {
+            display: none;
+            max-width: 1200px;
+            margin: 0 auto;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+        .vmv-content.active {
+            display: grid;
+        }
+        .vmv-image {
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .vmv-image img {
+            width: 70%;
+            height: 70%;
+            object-fit: contain;
+        }
+        .vmv-text h3 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+        .vmv-text p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .value-list {
+            list-style: none;
+            padding: 0;
+            margin: 0.50rem 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .value-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .value-item:hover {
+            background: #f8f9fa;
+            transform: translateX(5px);
+        }
+
+        .value-icon {
+            font-size: 1.4rem;
+            width: 30px;
+            text-align: center;
+            color: var(--primary-color); /* Use your theme color */
+        }
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .logo-agreement {
+            font-size: 1.5rem;
+        }
+
+        .logo-draft {
+            font-size: 1.2rem;
+        }
+
+        .nav-link {
+            margin-right: 0;
+        }
+
+        .vmv-tabs {
+            flex-direction: column;
+        }
+        .vmv-tab {
+            justify-content: center;
+        }
+        .hero-text h1 {
+            font-size: 1.8rem;
+        }
+        .hero-container {
+            flex-direction: column;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-title {
+            font-size: 2rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+        }
+
+        .hero-section {
+            padding: 40px 0; /* Adjusted padding for mobile */
+            height: auto; /* Allow height to adjust on mobile */
+        }
+
+        .hero-image {
+            max-width: 300px;
+            margin-top: 20px;
+        }
+
+        .footer-container {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .feature-cards {
+        flex-direction: column;
+        }
+
+        .highlight-card h2 {
+        font-size: 1.8rem;
+        }
+
+        .highlight-card p {
+            font-size: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+        }
+
+        .feature-card p {
+            font-size: 0.9rem;
+        }
+        .dropdown-control {
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .styled-button {
+            width: 100%;
+        }
+
+        .vmv-tabs {
+            flex-direction: column;
+        }
+
+        .vmv-tab {
+            font-size: 1rem;
+        }
+
+        .values-grid {
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .vmv-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar (unchanged) -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <div class="logo-container">
+                    <div class="logo-text">
+                        <span class="logo-brand">Agreement<span>Drafts</span></span>
+                    </div>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.htm">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#">Property Related</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Agreement to Sale</a></li>
+                            <li><a class="dropdown-item" href="#">Construction Agreement</a></li>
+                            <li><a class="dropdown-item" href="#">Developer Agreement</a></li>
+                            <li><a class="dropdown-item" href="#">Sale Deed</a></li>
+                            <li><a class="dropdown-item" href="#">Sale of Vehicle</a></li>
+                            <li><a class="dropdown-item" href="#">Exchange Deed</a></li>
+                            <li><a class="dropdown-item" href="#">Gift Deed</a></li>
+                            <li><a class="dropdown-item" href="#">Partition Deed</a></li>
+                            <li><a class="dropdown-item" href="#">Release Deed</a></li>
+                            <li><a class="dropdown-item" href="#">Settlement Deed</a></li>
+                            <li><a class="dropdown-item" href="#">Power of Attorney</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#">Lease and Loans</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Rent Agreement</a></li>
+                            <li><a class="dropdown-item" href="#">Guarantee Agreement</a></li>
+                            <li><a class="dropdown-item" href="#">Mortgage Deed</a></li>
+                            <li><a class="dropdown-item" href="#">Mortgage Enhancement Deed</a></li>
+                            <li><a class="dropdown-item" href="#">Hypothecation Agreement</a></li>
+                            <li><a class="dropdown-item" href="#">Indemnity Bond</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#">Mis</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Affidavit</a></li>
+                            <li><a class="dropdown-item" href="#">Adoption Deed</a></li>
+                            <li><a class="dropdown-item" href="#">Correction Deed</a></li>
+                            <li><a class="dropdown-item" href="#">Cancellation Deed</a></li>
+                            <li><a class="dropdown-item" href="#">Consent Deed</a></li>
+                            <li><a class="dropdown-item" href="#">Divorce Deed</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Updated Hero Section -->
+    <section class="hero-section">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Prepare Agreements for Settlement Deed Online in Few Clicks</h1>
+                <p class="hero-subtitle">We have prepared thousands of Agreements of various types. We are trusted Agreement Drafters</p>
+            </div>
+            <div class="hero-image">
+                <img src="final.png" alt="Legal Agreement Illustration" class="hero-img">
+            </div>
+        </div>
+    </section>
+
+    <section class="selection-block">
+        <div class="control-container">
+            <div class="selection-controls">
+                <!-- Agreement Type Dropdown -->
+                <div class="dropdown-control">
+                    <select class="styled-dropdown">
+                        <option value="">Select Agreement Type</option>
+                        <option value="rental">Rental Agreement</option>
+                        <option value="sale">Sale Agreement</option>
+                        <option value="lease">Lease Agreement</option>
+                        <option value="gift">Gift Deed</option>
+                    </select>
+                </div>
+
+                <!-- Language Dropdown -->
+                <div class="dropdown">
+                    <select class="styled-dropdown">
+                        <option value="">Select Language</option>
+                        <option value="english">English</option>
+                        <option value="hindi">Hindi</option>
+                        <option value="spanish">Spanish</option>
+                        <option value="french">French</option>
+                    </select>
+                </div>
+
+                <!-- Button -->
+                <button class="styled-button">Get Started</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="container">
+            <!-- Three Feature Cards -->
+            <div class="container features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-file-contract feature-icon"></i>
+                    <h3>Choose Agreement Type</h3>
+                    <p>Select Appropriate Agreement from the Available Menus and Submit Necessary Information.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-eye feature-icon"></i>
+                    <h3>Preview Your Agreement</h3>
+                    <p>Have a Preview of Your Agreement on the Go, Submit Data Only if Satisfied.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-truck feature-icon"></i>
+                    <h3>Receive Your Agreement</h3>
+                    <p>Pay Stamp Duty and Charges for Your Agreement and Get your Agreement at your Doorstep.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+         <!-- Highlighted Card -->
+         <div class="container">
+            <div class="highlight-card">
+                <h2>Why Select Us?</h2>
+                <p>Our Agreements have been Drafted by Experts. We are in this Activity for more than 2 years.</p>
+            </div>
+        </div>
+    </section>
+
+      <!-- Vision, Mission, and Values Section -->
+    <section class="vmv-section">
+        <div class="container">
+            <div class="vmv-tabs">
+                <div class="vmv-tab active" data-tab="vision">
+                    <i class="fas fa-binoculars"></i>
+                    Vision
+                </div>
+                <div class="vmv-tab" data-tab="mission">
+                    <i class="fas fa-rocket"></i>
+                    Mission
+                </div>
+                <div class="vmv-tab" data-tab="values">
+                    <i class="fas fa-heart"></i>
+                    Values
+                </div>
+            </div>
+
+            <div class="vmv-content active" id="vision">
+                <div class="vmv-image">
+                    <img src="vision.png" alt="Vision">
+                </div>
+                <div class="vmv-text">
+                    <h3>Our Vision</h3>
+                    <p>To revolutionize legal documentation through innovative technology, making professional legal services accessible to everyone.</p>
+                    <p>We envision a world where creating legally-binding agreements is as simple as having a conversation.</p>
+                </div>
+            </div>
+
+            <div class="vmv-content" id="mission">
+                <div class="vmv-image">
+                    <img src="mission.png" alt="Mission">
+                </div>
+                <div class="vmv-text">
+                    <h3>Our Mission</h3>
+                    <p>To empower individuals and businesses with self-service legal tools that combine professional expertise with cutting-edge technology.</p>
+                    <p>We commit to maintaining the highest standards of legal compliance while simplifying complex processes.</p>
+                </div>
+            </div>
+
+            <div class="vmv-content" id="values">
+                <div class="vmv-image">
+                    <img src="mission.png" alt="Values">
+                </div>
+                <div class="vmv-text">
+                    <h3>Core Values</h3>
+                    <div class="values-grid">
+                        <ul class="value-list">
+                            <li class="value-item">
+                                <i class="fa-regular fa-clock value-icon"></i>
+                                Punctuality
+                            </li>
+                            <li class="value-item">
+                                <i class="fa-regular fa-user-tie value-icon"></i>
+                                Professionalism
+                            </li>
+                            <li class="value-item">
+                                <i class="fa-regular fa-bolt value-icon"></i>
+                                Promptness
+                            </li>
+                            <li class="value-item">
+                                <i class="fa-regular fa-face-smile value-icon"></i>
+                                Politeness
+                            </li>
+                            <li class="value-item">
+                                <i class="fa-regular fa-circle-check value-icon"></i>
+                                Perfection
+                            </li>
+                            <li class="value-item">
+                                <i class="fa-regular fa-eye value-icon"></i>
+                                Transparency
+                            </li>
+                            <li class="value-item">
+                                <i class="fa-regular fa-laptop-code value-icon"></i>
+                                Technology
+                            </li>
+                            <li class="value-item">
+                                <i class="fa-regular fa-scale-balanced value-icon"></i>
+                                Truthfulness
+                            </li>
+                            <li class="value-item">
+                                <i class="fa-regular fa-chart-line value-icon"></i>
+                                Trending
+                            </li>
+                            <li class="value-item">
+                                <i class="fa-regular fa-handshake value-icon"></i>
+                                Trustworthy
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>About Us</h4>
+                <p>We are a trusted platform for creating legal agreements online. Our mission is to simplify the process of drafting agreements for everyone.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li>Email: support@agreementdraft.com</li>
+                    <li>Phone: +91 123-456-7890</li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>COPYRIGHT © BRIDGE CONSULTANCY . ALL RIGHT RESERVED.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS (for responsive toggle only) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Tab functionality for Vision, Mission, and Values section
+        const tabs = document.querySelectorAll('.vmv-tab');
+        const contents = document.querySelectorAll('.vmv-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const target = tab.getAttribute('data-tab');
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                contents.forEach(content => {
+                    if (content.id === target) {
+                        content.classList.add('active');
+                    } else {
+                        content.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
